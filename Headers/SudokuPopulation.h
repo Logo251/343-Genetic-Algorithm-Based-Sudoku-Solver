@@ -1,4 +1,6 @@
 
+#pragma once
+
 #include "../Interfaces/Population.h"
 
 class SudokuPopulation : Population {
@@ -10,5 +12,6 @@ public:
    Puzzle* BestIndividual();
 
 private:
-   int sudokuStorage[];
+   int maxPopulationSize;
+   Sudoku sudokuStorage[];
 };
