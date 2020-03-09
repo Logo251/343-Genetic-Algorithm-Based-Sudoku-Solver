@@ -2,11 +2,13 @@
 #include <iostream>
 #include "Headers/SudokuPopulation.h"
 
+int PERCENTAGE_CHANCE_OF_MUTATION = 2; //This is used to easily adjust the percentage chance of mutation.
+
 void main(int argc, char** argv) {
 
    //Local Variables
    char inputChar; //used for processing cin.
-   int inputSudoku[81] = 0; //Used for creating the Sudoku that needs to be solved.
+   int inputSudoku[81] = { 0 }; //Used for creating the Sudoku that needs to be solved.
    int progressThroughInputSudoku = 0; //Used for inputting itno inputSudoku.
 
    //If no argument was given.

@@ -1,7 +1,7 @@
 #include "..\Headers\SudokuFitness.h"
 #include <vector>
 
-int SudokuFitness::howFit(Puzzle inputPuzzle) {
+int SudokuFitness::howFit(Puzzle& inputPuzzle) {
    return evaluateRows(inputPuzzle) + evaluateColumns(inputPuzzle) + evaluateQuadrants(inputPuzzle);
 }
 

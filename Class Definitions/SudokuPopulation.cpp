@@ -35,7 +35,7 @@ Puzzle* SudokuPopulation::BestIndividual() {
       currentFitness = SudokuFitness::howFit(sudokuStorage[i]);
       if (currentFitness < bestFitnessRating) {
          bestFitnessRating = currentFitness;
-         bestFitnessPuzzle = sudokuStorage[i];
+         bestFitnessPuzzle = &sudokuStorage[i];
       }
    }
    return bestFitnessPuzzle;

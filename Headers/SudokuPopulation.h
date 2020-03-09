@@ -2,8 +2,9 @@
 #pragma once
 
 #include "../Interfaces/Population.h"
+#include "Sudoku.h"
 
-class SudokuPopulation : Population {
+class SudokuPopulation : public Population {
 public:
    SudokuPopulation(int maxPopulationSize, int inputSudoku[81]);
    void Cull();

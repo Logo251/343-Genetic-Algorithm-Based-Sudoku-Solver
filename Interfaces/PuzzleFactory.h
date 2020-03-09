@@ -6,5 +6,5 @@
 
 class PuzzleFactory {
 public:
-   virtual Puzzle createPuzzle(Reproduction referencePuzzle) = 0;
+   virtual Puzzle& createPuzzle() = 0;
 };

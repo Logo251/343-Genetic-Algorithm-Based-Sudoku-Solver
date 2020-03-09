@@ -4,9 +4,9 @@
 #include "Sudoku.h"
 #include "../Interfaces/Fitness.h"
 
-class SudokuFitness : Fitness {
+class SudokuFitness : public Fitness {
 public:
-   static int howFit(Puzzle inputPuzzle);
+   static int howFit(Puzzle& inputPuzzle);
 private:
   static int evaluateRows(Sudoku sudoku);
   static int evaluateColumns(Sudoku sudoku);
