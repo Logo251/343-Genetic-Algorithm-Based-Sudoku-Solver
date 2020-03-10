@@ -6,5 +6,6 @@
 
 class PuzzleFactory {
 public:
-   virtual Puzzle& createPuzzle() = 0;
+   virtual Puzzle& createPuzzle(Puzzle& referencePuzzle) = 0;
+   virtual Puzzle& createPuzzle(int inputArray[81]) = 0;
 };

@@ -5,5 +5,5 @@
 
 class Reproduction {
 public:
-   virtual Reproduction& makeOffspring(Puzzle& input) = 0;
+   virtual Puzzle& makeOffspring(Puzzle& input) = 0;
 };

@@ -2,8 +2,6 @@
 #include <iostream>
 #include "Headers/SudokuPopulation.h"
 
-int PERCENTAGE_CHANCE_OF_MUTATION = 2; //This is used to easily adjust the percentage chance of mutation.
-
 void main(int argc, char** argv) {
 
    //Local Variables
@@ -36,7 +34,7 @@ void main(int argc, char** argv) {
    SudokuPopulation sudokuPopulation((int)argv[1] - 48, inputSudoku); //The 48 converts the ascii number to an integer.
 
    for (int i = 0; i < (int)argv[1] - 48; i++) { //The 48 converts the ascii number to an integer.
-      if (sudokuPopulation.BestFitness == 0) {
+      if (sudokuPopulation.BestFitness() == 0) {
          break;
       }
       sudokuPopulation.Cull();

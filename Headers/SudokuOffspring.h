@@ -3,7 +3,7 @@
 #include <random>
 #include <ctime>
 
-class SudokuOffspring : Reproduction {
-   Reproduction& makeOffspring(Puzzle& input);
-   }
+class SudokuOffspring : public Reproduction {
+public:
+   Puzzle& makeOffspring(Puzzle& input);
 };

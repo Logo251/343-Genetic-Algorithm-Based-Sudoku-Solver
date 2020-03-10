@@ -86,3 +86,8 @@ std::istream& Sudoku::inputPuzzle(std::istream& input) {
 
    return input;
 }
+
+bool Sudoku::operator<(const Sudoku& rightSide) {
+   if(this->sudoku)
+   return false;
+}

@@ -2,7 +2,7 @@
 #include <vector>
 
 int SudokuFitness::howFit(Puzzle& inputPuzzle) {
-   return evaluateRows(inputPuzzle) + evaluateColumns(inputPuzzle) + evaluateQuadrants(inputPuzzle);
+   return evaluateRows(dynamic_cast<Sudoku&>(inputPuzzle)) + evaluateColumns(dynamic_cast<Sudoku&>(inputPuzzle)) + evaluateQuadrants(dynamic_cast<Sudoku&>(inputPuzzle));
 }
 
 int SudokuFitness::evaluateRows(Sudoku sudoku) {

@@ -1,6 +1,7 @@
 
 #pragma once
 
+#include <vector>
 #include "../Interfaces/Population.h"
 #include "Sudoku.h"
 
@@ -11,8 +12,10 @@ public:
    void NewGeneration();
    int BestFitness();
    Puzzle* BestIndividual();
+   bool CompareSudokus(Sudoku left, Sudoku right);
 
 private:
    int maxPopulationSize;
-   Sudoku sudokuStorage[];
+   std::vector<Sudoku> sudokuStorage;
+   SudokuFactory factory;
 };
