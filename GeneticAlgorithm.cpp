@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Headers/SudokuPopulation.h"
 
-void main(int argc, char** argv) {
+int main(int argc, char** argv) {
 
    //Local Variables
    char inputChar; //used for processing cin.
@@ -12,13 +12,15 @@ void main(int argc, char** argv) {
    //If no argument was given.
    if (argv[1] == nullptr) {
       std::cout << "No arguments.\n";
-      return;
+      return 0;
    }
 
-   //In case the input is invalid by being negative.
+   //TODO: valid population size <10
+
+   //In case the input is invalid by being negative or zero.
    for (int i = 0; i < 2; i++) {
-      if (argv[i] < 0) {
-         return;
+      if (argv[i] <= 0) {
+         return 0;
       }
    }
 
@@ -41,7 +43,7 @@ void main(int argc, char** argv) {
       sudokuPopulation.NewGeneration();
    }
 
-   Puzzle* bestPuzzle = sudokuPopulation.BestIndividual();
+   Puzzle* bestPuzzle = const_cast<Puzzle*>(sudokuPopulation.BestIndividual()); //TODO: is this valid?
    std::cout << bestPuzzle;
-   return;
+   return 0;
 }

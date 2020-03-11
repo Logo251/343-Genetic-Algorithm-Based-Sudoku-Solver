@@ -1,0 +1,92 @@
+﻿  Sudoku.cpp
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(12,34): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(13,37): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(14,39): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\Sudoku.cpp(92,66): error C2683: 'dynamic_cast': 'Sudoku' is not a polymorphic type
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\Sudoku.h(7): message : see declaration of 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\Sudoku.cpp(92,102): error C2664: 'int SudokuFitness::howFit(const Puzzle &)': cannot convert argument 1 from 'const Sudoku' to 'const Puzzle &'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\Sudoku.cpp(92,102): message : Reason: cannot convert from 'const Sudoku' to 'const Puzzle'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\Sudoku.cpp(92,93): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+  SudokuFactory.cpp
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(10,15): message : see declaration of 'SudokuFitness::howFit'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(12,34): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(13,37): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(14,39): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuFactory.cpp(20,29): error C2679: binary '>>': no operator found which takes a right-hand operand of type 'Sudoku' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(293,39): message : could be 'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(std::basic_streambuf<char,std::char_traits<char>> *)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(289,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(void *&)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(285,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(long double &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(281,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(double &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(277,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(float &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(273,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(unsigned __int64 &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(269,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(__int64 &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(265,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(unsigned long &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(261,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(long &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(257,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(unsigned int &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(249,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(int &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(245,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(unsigned short &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(213,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(short &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(209,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(bool &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(187,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(std::ios_base &(__cdecl *)(std::ios_base &))'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(182,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &))'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(177,39): message : or       'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(std::basic_istream<char,std::char_traits<char>> &(__cdecl *)(std::basic_istream<char,std::char_traits<char>> &))'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\Sudoku.h(9,25): message : or       'std::istream &operator >>(std::istream &,const Puzzle &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(828,31): message : or       'std::basic_istream<char,std::char_traits<char>> &std::operator >><std::char_traits<char>>(std::basic_istream<char,std::char_traits<char>> &,signed char *)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(833,31): message : or       'std::basic_istream<char,std::char_traits<char>> &std::operator >><std::char_traits<char>>(std::basic_istream<char,std::char_traits<char>> &,unsigned char *)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(862,31): message : or       'std::basic_istream<char,std::char_traits<char>> &std::operator >><std::char_traits<char>>(std::basic_istream<char,std::char_traits<char>> &,signed char &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(868,31): message : or       'std::basic_istream<char,std::char_traits<char>> &std::operator >><std::char_traits<char>>(std::basic_istream<char,std::char_traits<char>> &,unsigned char &)'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuFactory.cpp(20,29): message : while trying to match the argument list '(std::istringstream, Sudoku)'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuFactory.cpp(21,33): error C2664: 'Puzzle &SudokuFactory::createPuzzle(int [])': cannot convert argument 1 from 'Sudoku' to 'Puzzle &'
+  SudokuFitness.cpp
+  SudokuOffspring.cpp
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuFactory.cpp(4,24): message : see declaration of 'SudokuFactory::createPuzzle'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(12,34): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(13,37): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(14,39): error C2061: syntax error: identifier 'Sudoku'
+  SudokuPopulation.cpp
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuOffspring.cpp(34,20): error C2440: 'return': cannot convert from 'Sudoku' to 'Puzzle &'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(12,34): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(13,37): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(14,39): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(57,62): error C2664: 'int SudokuFitness::howFit(const Puzzle &)': cannot convert argument 1 from '_Ty' to 'const Puzzle &'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(57,62): error C2664:         with
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(57,62): error C2664:         [
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(57,62): error C2664:             _Ty=Sudoku
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(57,62): error C2664:         ]
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(57,62): message : Reason: cannot convert from '_Ty' to 'const Puzzle'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(57,62): message :         with
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(57,62): message :         [
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(57,62): message :             _Ty=Sudoku
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(57,62): message :         ]
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(57,61): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(10,15): message : see declaration of 'SudokuFitness::howFit'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(72,62): error C2664: 'int SudokuFitness::howFit(const Puzzle &)': cannot convert argument 1 from 'const _Ty' to 'const Puzzle &'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(72,62): error C2664:         with
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(72,62): error C2664:         [
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(72,62): error C2664:             _Ty=Sudoku
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(72,62): error C2664:         ]
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(72,62): message : Reason: cannot convert from 'const _Ty' to 'const Puzzle'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(72,62): message :         with
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(72,62): message :         [
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(72,62): message :             _Ty=Sudoku
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(72,62): message :         ]
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(72,61): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(10,15): message : see declaration of 'SudokuFitness::howFit'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(78,28): error C2440: 'return': cannot convert from 'const Sudoku *' to 'const Puzzle *'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(78,11): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(83,7): error C2664: 'int SudokuFitness::howFit(const Puzzle &)': cannot convert argument 1 from 'Sudoku' to 'const Puzzle &'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(83,7): message : Reason: cannot convert from 'Sudoku' to 'const Puzzle'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\class definitions\SudokuPopulation.cpp(83,30): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+  GeneticAlgorithm.cpp
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(10,15): message : see declaration of 'SudokuFitness::howFit'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(12,34): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(13,37): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\Headers\SudokuFitness.h(14,39): error C2061: syntax error: identifier 'Sudoku'
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\GeneticAlgorithm.cpp(36,51): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+  Fitness.h
+  Population.h
+  Puzzle.h
+  PuzzleFactory.h
+  Reproduction.h
+  Generating Code...
+C:\Users\LinuxIsBetter\source\repos\343-Program-4\GeneticAlgorithm.cpp(38,37): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'

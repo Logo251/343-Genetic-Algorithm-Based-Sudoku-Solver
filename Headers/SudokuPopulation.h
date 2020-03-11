@@ -1,20 +1,24 @@
 
 #pragma once
 
-#include <vector>
+#include <algorithm> //Used for sort.
 #include "../Interfaces/Population.h"
-#include "Sudoku.h"
+#include "../Headers/SudokuFitness.h"
+#include "../Headers/SudokuFactory.h"
+
 
 class SudokuPopulation : public Population {
 public:
-   SudokuPopulation(int maxPopulationSize, int inputSudoku[81]);
+   SudokuPopulation(int maxPopulationSize, int inputSudoku[]);
    void Cull();
    void NewGeneration();
    int BestFitness();
-   Puzzle* BestIndividual();
-   bool CompareSudokus(Sudoku left, Sudoku right);
+   const Puzzle* BestIndividual() const;
+   
 
 private:
+   static bool CompareSudokus(const Sudoku& left, const Sudoku& right); // Needs to be static for the function to function.
+
    int maxPopulationSize;
    std::vector<Sudoku> sudokuStorage;
    SudokuFactory factory;

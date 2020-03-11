@@ -1,8 +1,11 @@
-#include "..\Headers\SudokuFitness.h"
-#include <vector>
 
-int SudokuFitness::howFit(Puzzle& inputPuzzle) {
-   return evaluateRows(dynamic_cast<Sudoku&>(inputPuzzle)) + evaluateColumns(dynamic_cast<Sudoku&>(inputPuzzle)) + evaluateQuadrants(dynamic_cast<Sudoku&>(inputPuzzle));
+#include "..\Headers\SudokuFitness.h"
+
+int SudokuFitness::howFit(const Puzzle& inputPuzzle) {
+   //Local Variables
+   Sudoku newSudoku = dynamic_cast<const Sudoku&>(inputPuzzle);
+
+   return evaluateRows(newSudoku) + evaluateColumns(newSudoku) + evaluateQuadrants(newSudoku);
 }
 
 int SudokuFitness::evaluateRows(Sudoku sudoku) {

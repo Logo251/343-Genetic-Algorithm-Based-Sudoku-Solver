@@ -1,17 +1,17 @@
 
 #include "../Headers/SudokuOffspring.h"
-#include "../Headers/Sudoku.h"
-#include <ctime>
 
-Puzzle& SudokuOffspring::makeOffspring(Puzzle& input) {
+Puzzle& SudokuOffspring::makeOffspring(Puzzle& input) const {
    //Local Variables
    int PERCENTAGE_CHANCE_OF_MUTATION = 2; //This is used to easily adjust the percentage chance of mutation.
 
    //input is a Sudoku, set it so.
    Sudoku input2 = dynamic_cast<Sudoku&>(input);
+   //TODO: Needs copy constructor, probably shallow and explodes.
    
    //Create random
    srand(time(NULL));
+   //TODO: seed once, do it in makeOffSpring constructor.
 
    //Create copy of input Sudoku
    Sudoku newSudoku;

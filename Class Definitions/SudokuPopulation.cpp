@@ -1,22 +1,25 @@
-#include <algorithm> //Used for sort.
-#include "..\Headers\SudokuPopulation.h"
-#include "..\Headers\SudokuFitness.h"
-#include "..\Headers\SudokuFactory.h"
 
-SudokuPopulation::SudokuPopulation(int maxPopulationSize, int inputSudoku[81]) {
+#include "../Headers/SudokuPopulation.h"
+
+SudokuPopulation::SudokuPopulation(int maxPopulationSize, int inputSudoku[]) {
    this->maxPopulationSize = maxPopulationSize;
    sudokuStorage.resize(maxPopulationSize);
-   sudokuStorage.push_back(dynamic_cast<Sudoku&>(factory.createPuzzle())
+   //sudokuStorage.push_back(dynamic_cast<Sudoku&>(factory.createPuzzle(inputSudoku)));
 }
 
 void SudokuPopulation::Cull() {
 
+   //If generation is not full, we just initialized, do nothing.
+   if(sudokuStorage.size() == 1) //One because that is how we initalized the item.
+   return;
+
    //Sort in order of fitness.
-   std::sort(sudokuStorage.begin(), sudokuStorage.end(), CompareSudokus);
+   std::sort(sudokuStorage.begin(), sudokuStorage.end(), SudokuPopulation::CompareSudokus);
 
    //Empty the 90% of the graph.
-   for (int i = (maxPopulationSize * 0.1); i < maxPopulationSize; i++) {
-      sudokuStorage.erase(sudokuStorage.begin() + i - 1); //the -1 offsets the +1 given by the iterator.
+   //TODO: CHeck this
+   for (int i = (maxPopulationSize * 0.1 + 0.5); i < maxPopulationSize; i++) { //Use 0.5 to round for specific cases.
+      sudokuStorage.erase(sudokuStorage.begin() + i - 1, sudokuStorage.end()); //the -1 offsets the +1 given by the iterator.
    }
 }
 
@@ -27,13 +30,20 @@ void SudokuPopulation::NewGeneration() {
    //Initialization condition.
    if (sudokuStorage.size() == 1) {
       for (int i = 0; i < maxPopulationSize; i++) {
-         sudokuStorage.at(i) = dynamic_cast<Sudoku&>(factory.createPuzzle())
+         //sudokuStorage.at(i) = dynamic_cast<Sudoku&>(factory.createPuzzle(sudokuStorage.at(0)));
       }
+      return;
    }
 
-   if (sudokuStorage.size() == (maxPopulationSize * 0.1)) {
-      for (int i = (maxPopulationSize * 0.1); i < maxPopulationSize; i++) {
-         sudokuStorage.at()
+   if (sudokuStorage.size() == (maxPopulationSize * 0.1 + 0.5)) { //Use 0.5 to round for specific cases.
+      for (int i = (maxPopulationSize * 0.1 + 0.5); i < maxPopulationSize; i++) { //Use 0.5 to round for specific cases.
+         //sudokuStorage.at(i) = dynamic_cast<Sudoku&>(factory.createPuzzle(sudokuStorage.at(progressThroughTopTenPercent)));
+         if (progressThroughTopTenPercent < maxPopulationSize * 0.1 - 1 + 0.5) { //-1 for edge case, 0.5 to round for specific cases.
+            progressThroughTopTenPercent = 0;
+         }
+         else {
+            progressThroughTopTenPercent++;
+         }
       }
    }
 }
@@ -52,11 +62,11 @@ int SudokuPopulation::BestFitness() {
    return bestFitnessRating;
 }
 
-Puzzle* SudokuPopulation::BestIndividual() {
+const Puzzle* SudokuPopulation::BestIndividual() const {
    //Local Variables
    int bestFitnessRating = 99999; //99999 is more than every possible error in Sudoku.
    int currentFitness; //Rating of the current Sudoku in question.
-   Puzzle* bestFitnessPuzzle;
+   const Sudoku* bestFitnessPuzzle = nullptr;
 
    for (int i = 0; i < maxPopulationSize; i++) {
       currentFitness = SudokuFitness::howFit(sudokuStorage[i]);
@@ -68,8 +78,9 @@ Puzzle* SudokuPopulation::BestIndividual() {
    return bestFitnessPuzzle;
 }
 
-bool SudokuPopulation::CompareSudokus(Sudoku left, Sudoku right) {
-   if (SudokuFitness::howFit(left) < SudokuFitness::howFit(right) {
+
+bool SudokuPopulation::CompareSudokus(const Sudoku &left, const Sudoku &right) {
+   if (SudokuFitness::howFit(left) < SudokuFitness::howFit(right)) {
       return true;
    }
    return false;

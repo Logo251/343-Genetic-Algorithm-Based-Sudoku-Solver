@@ -1,3 +1,4 @@
+
 #include "../Headers/Sudoku.h"
 
 std::istream& operator>>(std::istream& input, Puzzle& puzzle) {
@@ -6,11 +7,24 @@ std::istream& operator>>(std::istream& input, Puzzle& puzzle) {
 }
 
 std::ostream& operator<<(std::ostream& out, const Puzzle& puzzle) {
-   out << puzzle.printPuzzle();
+   out << puzzle.toString();
    return out;
 }
 
-std::string Sudoku::printPuzzle() const {
+Sudoku::Sudoku(int inputSudoku[]) {
+   std::string inputInString = "";
+
+   //Convert inputArray to string
+   for (int i = 0; i < 81; i++) {
+      inputInString += inputSudoku[i];
+   }
+
+   std::istringstream stringStream(inputInString);
+
+   this->inputPuzzle(stringStream);
+}
+
+std::string Sudoku::toString() const {
    //Local Variables
    int progressThroughX = 0; //Progress through the x axis of the sudoku puzzle being printed.
    int progressThroughY = 0; //Progress through the y axis of the sudoku puzzle being printed.
@@ -85,9 +99,4 @@ std::istream& Sudoku::inputPuzzle(std::istream& input) {
    }
 
    return input;
-}
-
-bool Sudoku::operator<(const Sudoku& rightSide) {
-   if(this->sudoku)
-   return false;
 }

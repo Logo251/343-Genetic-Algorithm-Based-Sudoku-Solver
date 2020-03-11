@@ -1,15 +1,16 @@
 
 #pragma once
 
+#include <sstream>
 #include "../Interfaces/Puzzle.h"
-#include <iostream> //Used for the in/out operators.
 
 class Sudoku : public Puzzle {
 public:
+   Sudoku(int inputSudoku[]);
    friend std::istream& operator>>(std::istream& input, const Puzzle& puzzle);
    friend std::ostream& operator<<(std::ostream& out, const Puzzle& puzzle);
-   std::string printPuzzle() const;
+   std::string toString() const;
    std::istream& inputPuzzle(std::istream& input);
 
-   int sudoku[9][9]; //This object's puzzle.
+   int sudoku[9][9] = { 0 }; //This object's puzzle.
 };

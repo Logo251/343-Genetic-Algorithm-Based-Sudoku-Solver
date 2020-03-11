@@ -1,12 +1,14 @@
 
+#pragma once
+
+#include <sstream>
 #include "../Interfaces/PuzzleFactory.h"
-#include "SudokuOffspring.h"
-#include "Sudoku.h"
+#include "../Headers/SudokuOffspring.h"
 
 class SudokuFactory : public PuzzleFactory {
 public:
    Puzzle& createPuzzle(Puzzle& referencePuzzle);
-   Puzzle& createPuzzle(int inputArray[81]);
+   Puzzle& createPuzzle(int inputArray[]);
 
    SudokuOffspring reproductionObject;
 };
