@@ -12,16 +12,9 @@ Puzzle& SudokuOffspring::makeOffspring(Puzzle& input) const {
 
    //input is a Sudoku, set it so.
    Sudoku input2 = dynamic_cast<Sudoku&>(input);
-   //TODO: Needs copy constructor, probably shallow and explodes.
 
    //Create copy of input Sudoku
-   Sudoku newSudoku;
-   
-   for (int i = 0; i < 9; i++) {
-      for (int j = 0; j < 9; j++) {
-         newSudoku.sudoku[i][j] = input2.sudoku[i][j];
-      }
-   }
+   Sudoku newSudoku = input2;
 
    for (int i = 0; i < 9; i++) {
       for (int j = 0; j < 9; j++) {

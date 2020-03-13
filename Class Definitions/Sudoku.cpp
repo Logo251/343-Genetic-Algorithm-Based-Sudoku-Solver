@@ -25,6 +25,10 @@ Sudoku::Sudoku(const Sudoku& inputSudoku) {
 }
 
 Sudoku& Sudoku::operator=(const Sudoku& inputSudoku) {
+
+   if (this == &inputSudoku) {
+      return *this;
+   }
    this->fitness = inputSudoku.fitness;
 
    //Copy array.
@@ -33,6 +37,7 @@ Sudoku& Sudoku::operator=(const Sudoku& inputSudoku) {
          this->sudoku[j][i] = inputSudoku.sudoku[j][i];
       }
    }
+   return *this;
 }
 
 std::istream& operator>>(std::istream& input, Puzzle& puzzle) {
