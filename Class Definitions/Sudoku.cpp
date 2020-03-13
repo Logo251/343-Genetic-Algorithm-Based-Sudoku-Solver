@@ -1,6 +1,40 @@
 
 #include "../Headers/Sudoku.h"
 
+Sudoku::Sudoku() {
+   fitness = 0;
+}
+
+Sudoku::Sudoku(int inputSudoku[81]) {
+   //Local Variables
+   std::string inputInString;
+
+   fitness = 0;
+
+   //Convert inputArray to string.
+   for (int i = 0; i < 81; i++) {
+      inputInString += std::to_string(inputSudoku[i]);
+   }
+   std::istringstream stringStream(inputInString);
+
+   this->inputPuzzle(stringStream);
+}
+
+Sudoku::Sudoku(const Sudoku& inputSudoku) {
+   *this = inputSudoku;
+}
+
+Sudoku& Sudoku::operator=(const Sudoku& inputSudoku) {
+   this->fitness = inputSudoku.fitness;
+
+   //Copy array.
+   for(int i = 0; i < 9; i++) {
+      for(int j = 0; j < 9; j++) {
+         this->sudoku[j][i] = inputSudoku.sudoku[j][i];
+      }
+   }
+}
+
 std::istream& operator>>(std::istream& input, Puzzle& puzzle) {
    puzzle.inputPuzzle(input);
    return input;
@@ -9,18 +43,6 @@ std::istream& operator>>(std::istream& input, Puzzle& puzzle) {
 std::ostream& operator<<(std::ostream& out, const Puzzle& puzzle) {
    out << puzzle.toString();
    return out;
-}
-
-Sudoku::Sudoku(int inputSudoku[81]) {
-   std::string inputInString;
-
-   //Convert inputArray to string
-   for (int i = 0; i < 81; i++) {
-      inputInString += std::to_string(inputSudoku[i]);
-   }
-   std::istringstream stringStream(inputInString);
-
-   this->inputPuzzle(stringStream);
 }
 
 std::string Sudoku::toString() const {
@@ -54,7 +76,7 @@ std::string Sudoku::toString() const {
 
          //Handles the actual numbers.
          else {
-            
+
             //This converts the negatives used to determine number that cannot be changed to normal for the human reading it.
             if (sudoku[progressThroughX][progressThroughY] < 0) {
                out += std::to_string(sudoku[progressThroughX][progressThroughY] * -1);
