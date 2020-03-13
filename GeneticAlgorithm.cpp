@@ -8,20 +8,29 @@ int main(int argc, char** argv) {
    char inputChar; //used for processing cin.
    int inputSudoku[81] = { 0 }; //Used for creating the Sudoku that needs to be solved.
    int progressThroughInputSudoku = 0; //Used for inputting itno inputSudoku.
+   int maximumPopulationSize = 0;
+   int maximumGenerationCount = 0;
 
    //If no argument was given.
-   if (argv[1] == nullptr) {
-      std::cout << "No arguments.\n";
+   if (argv[1] == nullptr || argv[2] == nullptr) {
+      std::cout << "No or insufficient arguments.\n";
       return 0;
    }
 
-   //TODO: valid population size <10
-
    //In case the input is invalid by being negative or zero.
-   for (int i = 0; i < 2; i++) {
+   for (int i = 1; i < 3; i++) {
       if (argv[i] <= 0) {
          return 0;
       }
+   }
+
+   //Convert arguments to ints.
+   maximumPopulationSize = std::stoi(argv[1]);
+   maximumGenerationCount = std::stoi(argv[2]);
+
+   if (maximumPopulationSize < 10) {
+      std::cout << "Insufficient population size for proper operation.";
+      return 0;
    }
 
    //Read in the numbers for the first puzzle.
@@ -29,21 +38,26 @@ int main(int argc, char** argv) {
    while (std::cin.get(inputChar)) {
       if (isdigit(inputChar)) {
          inputSudoku[progressThroughInputSudoku] = (int)inputChar - 48; //The 48 converts the ascii number to an integer.
+         progressThroughInputSudoku++;
+         if (progressThroughInputSudoku == 81) {
+            break;
+         }
       }
    }
 
    //Now create population.
-   SudokuPopulation sudokuPopulation((int)argv[1] - 48, inputSudoku); //The 48 converts the ascii number to an integer.
+   SudokuPopulation sudokuPopulation(maximumPopulationSize, inputSudoku); //The 48 converts the ascii number to an integer.
 
-   for (int i = 0; i < (int)argv[1] - 48; i++) { //The 48 converts the ascii number to an integer.
+   for (int i = 0; i <= maximumGenerationCount; i++) {
       if (sudokuPopulation.BestFitness() == 0) {
          break;
       }
       sudokuPopulation.Cull();
       sudokuPopulation.NewGeneration();
+      std::cout << i;
    }
 
-   Puzzle* bestPuzzle = const_cast<Puzzle*>(sudokuPopulation.BestIndividual()); //TODO: is this valid?
-   std::cout << bestPuzzle;
+   Puzzle* bestPuzzle = const_cast<Puzzle*>(sudokuPopulation.BestIndividual());
+   std::cout << *bestPuzzle;
    return 0;
 }

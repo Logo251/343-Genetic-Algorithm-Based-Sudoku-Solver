@@ -8,7 +8,7 @@
 class SudokuFactory : public PuzzleFactory {
 public:
    Puzzle& createPuzzle(Puzzle& referencePuzzle);
-   Puzzle& createPuzzle(int inputArray[]);
+   Puzzle& createPuzzle(int inputArray[81]);
 
    SudokuOffspring reproductionObject;
 };

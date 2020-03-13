@@ -5,7 +5,7 @@ Puzzle& SudokuFactory::createPuzzle(Puzzle& referencePuzzle) {
    return reproductionObject.makeOffspring(referencePuzzle);
 }
 
-Puzzle& SudokuFactory::createPuzzle(int inputArray[]) {
+Puzzle& SudokuFactory::createPuzzle(int inputArray[81]) {
    //Local Variables
    Sudoku newSudoku(inputArray);
 
