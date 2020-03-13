@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
          }
       }
    }
-
+   
    //Now create population.
    SudokuPopulation sudokuPopulation(maximumPopulationSize, inputSudoku); //The 48 converts the ascii number to an integer.
 
@@ -57,7 +57,6 @@ int main(int argc, char** argv) {
       std::cout << i;
    }
 
-   Puzzle* bestPuzzle = const_cast<Puzzle*>(sudokuPopulation.BestIndividual());
-   std::cout << *bestPuzzle;
+   std::cout << sudokuPopulation.BestIndividual();
    return 0;
 }

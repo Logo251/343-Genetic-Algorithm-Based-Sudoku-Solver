@@ -14,12 +14,10 @@ public:
    void Cull();
    void NewGeneration();
    int BestFitness();
-   const Puzzle* BestIndividual() const;
+   const Puzzle& BestIndividual() const;
    
 
 private:
-   //static bool CompareSudokus(const Sudoku& left, const Sudoku& right); // Needs to be static for the function to function.
-
    struct CompareSudokus {
       bool operator()(const Sudoku& left, const Sudoku& right);
    };

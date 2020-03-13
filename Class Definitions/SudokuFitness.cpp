@@ -5,38 +5,35 @@ int SudokuFitness::howFit(const Puzzle& inputPuzzle) {
    //Local Variables
    Sudoku newSudoku = dynamic_cast<const Sudoku&>(inputPuzzle);
 
-   return evaluateRows(newSudoku) + evaluateColumns(newSudoku) + evaluateQuadrants(newSudoku);
+   return evaluateRows(newSudoku) + evaluateQuadrants(newSudoku); //evaluateColumns(newSudoku)
 }
 
 int SudokuFitness::evaluateRows(Sudoku sudoku) {
    //Local Variables
    int errorCount = 0; //Number of errors found relating to the rows. Can be any non-negative number.
-   std::vector<int> seenNumbers; //Used to make sure we do not have duplicates in each row.
+   //std::vector<int> seenNumbers; //Used to make sure we do not have duplicates in each row.
    int ComparisonNumber; //Used to ensure we compare the actual values of each number, not the negative parts.
 
    for (int i = 0; i < 9; i++) {
+      //Should be better than a for loop to reset every row.
+      int foundNumbers[9] = { 0 };
+
       for (int j = 0; j < 9; j++) {
-         ComparisonNumber = sudoku.sudoku[j][i];
+         ComparisonNumber = abs(sudoku.sudoku[j][i]);
 
          //If the spot is blank, it IS wrong.
          if (ComparisonNumber == 0) {
             errorCount++;
          }
          else {
-            //Convert to negative if needed.
-            if (ComparisonNumber < 0) {
-               ComparisonNumber *= -1;
-            }
-
-            if (std::find(seenNumbers.begin(), seenNumbers.end(), ComparisonNumber) != seenNumbers.end()) { //TODO: test with known broken Sudokus.
+            if(foundNumbers[ComparisonNumber - 1] != 0) {
                errorCount++;
             }
             else {
-               seenNumbers.push_back(ComparisonNumber);
+               foundNumbers[ComparisonNumber - 1] = 1;
             }
          }
       }
-      seenNumbers.clear();
    }
 
    return errorCount;
@@ -49,27 +46,25 @@ int SudokuFitness::evaluateColumns(Sudoku sudoku) {
    int ComparisonNumber; //Used to ensure we compare the actual values of each number, not the negative parts.
 
    for (int i = 0; i < 9; i++) {
+      //Should be better than a for loop to reset every row.
+      int foundNumbers[9] = { 0 };
+
       for (int j = 0; j < 9; j++) {
-         ComparisonNumber = sudoku.sudoku[j][i];
+         ComparisonNumber = abs(sudoku.sudoku[j][i]);
 
          //If the spot is blank, it IS wrong.
          if (ComparisonNumber == 0) {
             errorCount++;
          }
          else {
-            //Convert to negative if needed.
-            if (ComparisonNumber < 0) {
-               ComparisonNumber *= -1;
-            }
-            if (std::find(seenNumbers.begin(), seenNumbers.end(), ComparisonNumber) != seenNumbers.end()) {
+            if (foundNumbers[ComparisonNumber - 1] != 0) {
                errorCount++;
             }
             else {
-               seenNumbers.push_back(ComparisonNumber);
+               foundNumbers[ComparisonNumber - 1] = 1;
             }
          }
       }
-      seenNumbers.clear();
    }
 
    return errorCount;
@@ -84,27 +79,25 @@ int SudokuFitness::evaluateQuadrants(Sudoku sudoku) {
    for (int i = 0; i < 9; i += 3) {
       for (int j = 0; j < 9; j += 3) {
          for (int k = 0; k < 3; k++) {
+            //Should be better than a for loop to reset every row.
+            int foundNumbers[9] = { 0 }; //TODO: check if this works
+
             for (int l = 0; l < 3; l++) {
-               ComparisonNumber = sudoku.sudoku[k + i][j + l];
+               ComparisonNumber = abs(sudoku.sudoku[k + i][j + l]);
 
                //If the spot is blank, it IS wrong.
                if (ComparisonNumber == 0) {
                   errorCount++;
                }
                else {
-                  //Convert to negative if needed.
-                  if (ComparisonNumber < 0) {
-                     ComparisonNumber *= -1;
-                  }
-                  if (std::find(seenNumbers.begin(), seenNumbers.end(), ComparisonNumber) != seenNumbers.end()) {
+                  if (foundNumbers[ComparisonNumber - 1] != 0) {
                      errorCount++;
                   }
                   else {
-                     seenNumbers.push_back(ComparisonNumber);
+                     foundNumbers[ComparisonNumber - 1] = 1;
                   }
                }
             }
-            seenNumbers.clear();
          }
       }
    }
