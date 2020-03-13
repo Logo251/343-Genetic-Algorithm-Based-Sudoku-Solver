@@ -1,5 +1,5 @@
 
-#include "..\Headers\SudokuFitness.h"
+#include "../Headers/SudokuFitness.h"
 
 int SudokuFitness::howFit(const Puzzle& inputPuzzle) const {
    //Local Variables
