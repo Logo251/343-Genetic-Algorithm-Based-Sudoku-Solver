@@ -6,7 +6,7 @@ SudokuPopulation::SudokuPopulation(int maxPopulationSize, int inputSudoku[81]) {
 
    //Generate fitness for this function (unsure if I can do this in the factory while following spec, so I do it here)
    Sudoku toBeAdded = dynamic_cast<Sudoku&>(factory.createPuzzle(inputSudoku));
-   toBeAdded.fitness = SudokuFitness::howFit(toBeAdded);
+   toBeAdded.fitness = fitness.howFit(toBeAdded);
 
    sudokuStorage.push(toBeAdded);
 }
@@ -45,7 +45,7 @@ void SudokuPopulation::NewGeneration() {
       Sudoku starterSudoku = sudokuStorage.top(); //This is put here to save resource utilization, as it is only used here.
       for (int i = 0; i < maxPopulationSize - 1; i++) { //One is already in the table.
          toBeAdded = dynamic_cast<Sudoku&>(factory.createPuzzle(starterSudoku));
-         toBeAdded.fitness = SudokuFitness::howFit(toBeAdded);
+         toBeAdded.fitness = fitness.howFit(toBeAdded);
          sudokuStorage.push(toBeAdded);
       }
       return;
@@ -65,7 +65,7 @@ void SudokuPopulation::NewGeneration() {
 
          //Generate fitness for this function (unsure if I can do this in the factory while following spec, so I do it here)
          toBeAdded = dynamic_cast<Sudoku&>(factory.createPuzzle(temporaryStorage.at(progressThroughTopTenPercent)));
-         toBeAdded.fitness = SudokuFitness::howFit(sudokuStorage.top());
+         toBeAdded.fitness = fitness.howFit(sudokuStorage.top());
 
          sudokuStorage.push(toBeAdded);
 

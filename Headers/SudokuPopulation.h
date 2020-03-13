@@ -26,4 +26,5 @@ private:
    //std::vector<Sudoku> sudokuStorage;
    std::priority_queue<Sudoku, std::vector<Sudoku>, SudokuPopulation::CompareSudokus> sudokuStorage;
    SudokuFactory factory;
+   SudokuFitness fitness;
 };

@@ -1,14 +1,14 @@
 
 #include "..\Headers\SudokuFitness.h"
 
-int SudokuFitness::howFit(const Puzzle& inputPuzzle) {
+int SudokuFitness::howFit(const Puzzle& inputPuzzle) const {
    //Local Variables
    Sudoku newSudoku = dynamic_cast<const Sudoku&>(inputPuzzle);
 
    return evaluateRows(newSudoku) + evaluateQuadrants(newSudoku); //evaluateColumns(newSudoku)
 }
 
-int SudokuFitness::evaluateRows(Sudoku sudoku) {
+int SudokuFitness::evaluateRows(Sudoku sudoku) const {
    //Local Variables
    int errorCount = 0; //Number of errors found relating to the rows. Can be any non-negative number.
    //std::vector<int> seenNumbers; //Used to make sure we do not have duplicates in each row.
@@ -39,7 +39,7 @@ int SudokuFitness::evaluateRows(Sudoku sudoku) {
    return errorCount;
 }
 
-int SudokuFitness::evaluateColumns(Sudoku sudoku) {
+int SudokuFitness::evaluateColumns(Sudoku sudoku) const {
    //Local Variables
    int errorCount = 0; //Number of errors found relating to the rows. Can be any non-negative number.
    std::vector<int> seenNumbers; //Used to make sure we do not have duplicates in each row.
@@ -70,7 +70,7 @@ int SudokuFitness::evaluateColumns(Sudoku sudoku) {
    return errorCount;
 }
 
-int SudokuFitness::evaluateQuadrants(Sudoku sudoku) {
+int SudokuFitness::evaluateQuadrants(Sudoku sudoku) const {
    int errorCount = 0; //Number of errors found relating to the rows. Can be any non-negative number.
    std::vector<int> seenNumbers; //Used to make sure we do not have duplicates in each row.
    int ComparisonNumber; //Used to ensure we compare the actual values of each number, not the negative parts.

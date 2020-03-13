@@ -7,9 +7,9 @@
 
 class SudokuFitness : public Fitness {
 public:
-   static int howFit(const Puzzle& inputPuzzle);
+   int howFit(const Puzzle& inputPuzzle) const;
 private:
-  static int evaluateRows(Sudoku sudoku);
-  static int evaluateColumns(Sudoku sudoku);
-  static int evaluateQuadrants(Sudoku sudoku);
+  int evaluateRows(Sudoku sudoku) const;
+  int evaluateColumns(Sudoku sudoku) const;
+  int evaluateQuadrants(Sudoku sudoku) const;
 };
