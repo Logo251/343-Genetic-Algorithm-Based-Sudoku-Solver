@@ -42,8 +42,9 @@ void SudokuPopulation::NewGeneration() {
 
    //Initialization condition.
    if (sudokuStorage.size() == 1) {
+      Sudoku starterSudoku = sudokuStorage.top(); //This is put here to save resource utilization, as it is only used here.
       for (int i = 0; i < maxPopulationSize - 1; i++) { //One is already in the table.
-         toBeAdded = dynamic_cast<Sudoku&>(factory.createPuzzle(const_cast<Sudoku&>(sudokuStorage.top())));
+         toBeAdded = dynamic_cast<Sudoku&>(factory.createPuzzle(starterSudoku));
          toBeAdded.fitness = SudokuFitness::howFit(toBeAdded);
          sudokuStorage.push(toBeAdded);
       }

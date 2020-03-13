@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
       }
       sudokuPopulation.Cull();
       sudokuPopulation.NewGeneration();
-      std::cout << i;
+      std::cout << '\r' << i;
    }
 
    std::cout << sudokuPopulation.BestIndividual();

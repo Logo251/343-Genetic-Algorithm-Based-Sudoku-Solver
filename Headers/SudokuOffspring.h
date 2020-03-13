@@ -7,5 +7,6 @@
 
 class SudokuOffspring : public Reproduction {
 public:
+   SudokuOffspring();
    Puzzle& makeOffspring(Puzzle& input) const;
 };

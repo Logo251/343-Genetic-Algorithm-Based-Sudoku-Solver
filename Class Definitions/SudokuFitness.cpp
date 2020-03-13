@@ -16,7 +16,7 @@ int SudokuFitness::evaluateRows(Sudoku sudoku) {
 
    for (int i = 0; i < 9; i++) {
       //Should be better than a for loop to reset every row.
-      int foundNumbers[9] = { 0 };
+      bool foundNumbers[9] = { false };
 
       for (int j = 0; j < 9; j++) {
          ComparisonNumber = abs(sudoku.sudoku[j][i]);
@@ -26,11 +26,11 @@ int SudokuFitness::evaluateRows(Sudoku sudoku) {
             errorCount++;
          }
          else {
-            if(foundNumbers[ComparisonNumber - 1] != 0) {
+            if(foundNumbers[ComparisonNumber - 1] == true) {
                errorCount++;
             }
             else {
-               foundNumbers[ComparisonNumber - 1] = 1;
+               foundNumbers[ComparisonNumber - 1] = true;
             }
          }
       }
@@ -47,7 +47,7 @@ int SudokuFitness::evaluateColumns(Sudoku sudoku) {
 
    for (int i = 0; i < 9; i++) {
       //Should be better than a for loop to reset every row.
-      int foundNumbers[9] = { 0 };
+      bool foundNumbers[9] = { false };
 
       for (int j = 0; j < 9; j++) {
          ComparisonNumber = abs(sudoku.sudoku[j][i]);
@@ -57,11 +57,11 @@ int SudokuFitness::evaluateColumns(Sudoku sudoku) {
             errorCount++;
          }
          else {
-            if (foundNumbers[ComparisonNumber - 1] != 0) {
+            if (foundNumbers[ComparisonNumber - 1] == true) {
                errorCount++;
             }
             else {
-               foundNumbers[ComparisonNumber - 1] = 1;
+               foundNumbers[ComparisonNumber - 1] = false;
             }
          }
       }
@@ -78,10 +78,10 @@ int SudokuFitness::evaluateQuadrants(Sudoku sudoku) {
    //The if nightmare, but reads each quadrant.
    for (int i = 0; i < 9; i += 3) {
       for (int j = 0; j < 9; j += 3) {
-         for (int k = 0; k < 3; k++) {
-            //Should be better than a for loop to reset every row.
-            int foundNumbers[9] = { 0 }; //TODO: check if this works
+         //Should be better than a for loop to reset every row.
+         bool foundNumbers[9] = { false };
 
+         for (int k = 0; k < 3; k++) {
             for (int l = 0; l < 3; l++) {
                ComparisonNumber = abs(sudoku.sudoku[k + i][j + l]);
 
@@ -90,11 +90,11 @@ int SudokuFitness::evaluateQuadrants(Sudoku sudoku) {
                   errorCount++;
                }
                else {
-                  if (foundNumbers[ComparisonNumber - 1] != 0) {
+                  if (foundNumbers[ComparisonNumber - 1] == true) {
                      errorCount++;
                   }
                   else {
-                     foundNumbers[ComparisonNumber - 1] = 1;
+                     foundNumbers[ComparisonNumber - 1] = true;
                   }
                }
             }
