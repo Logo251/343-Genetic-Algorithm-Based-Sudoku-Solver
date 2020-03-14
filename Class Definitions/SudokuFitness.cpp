@@ -5,13 +5,12 @@ int SudokuFitness::howFit(const Puzzle& inputPuzzle) const {
    //Local Variables
    Sudoku newSudoku = dynamic_cast<const Sudoku&>(inputPuzzle);
 
-   return evaluateRows(newSudoku) + evaluateQuadrants(newSudoku); //evaluateColumns(newSudoku)
+   return (evaluateRows(newSudoku) + evaluateColumns(newSudoku) + evaluateQuadrants(newSudoku));
 }
 
 int SudokuFitness::evaluateRows(Sudoku sudoku) const {
    //Local Variables
    int errorCount = 0; //Number of errors found relating to the rows. Can be any non-negative number.
-   //std::vector<int> seenNumbers; //Used to make sure we do not have duplicates in each row.
    int ComparisonNumber; //Used to ensure we compare the actual values of each number, not the negative parts.
 
    for (int i = 0; i < 9; i++) {
@@ -41,8 +40,7 @@ int SudokuFitness::evaluateRows(Sudoku sudoku) const {
 
 int SudokuFitness::evaluateColumns(Sudoku sudoku) const {
    //Local Variables
-   int errorCount = 0; //Number of errors found relating to the rows. Can be any non-negative number.
-   std::vector<int> seenNumbers; //Used to make sure we do not have duplicates in each row.
+   int errorCount = 0; //Number of errors found relating to the column. Can be any non-negative number.
    int ComparisonNumber; //Used to ensure we compare the actual values of each number, not the negative parts.
 
    for (int i = 0; i < 9; i++) {
@@ -50,7 +48,7 @@ int SudokuFitness::evaluateColumns(Sudoku sudoku) const {
       bool foundNumbers[9] = { false };
 
       for (int j = 0; j < 9; j++) {
-         ComparisonNumber = abs(sudoku.sudoku[j][i]);
+         ComparisonNumber = abs(sudoku.sudoku[i][j]);
 
          //If the spot is blank, it IS wrong.
          if (ComparisonNumber == 0) {
@@ -61,7 +59,7 @@ int SudokuFitness::evaluateColumns(Sudoku sudoku) const {
                errorCount++;
             }
             else {
-               foundNumbers[ComparisonNumber - 1] = false;
+               foundNumbers[ComparisonNumber - 1] = true;
             }
          }
       }
@@ -71,8 +69,7 @@ int SudokuFitness::evaluateColumns(Sudoku sudoku) const {
 }
 
 int SudokuFitness::evaluateQuadrants(Sudoku sudoku) const {
-   int errorCount = 0; //Number of errors found relating to the rows. Can be any non-negative number.
-   std::vector<int> seenNumbers; //Used to make sure we do not have duplicates in each row.
+   int errorCount = 0; //Number of errors found relating to the block. Can be any non-negative number.
    int ComparisonNumber; //Used to ensure we compare the actual values of each number, not the negative parts.
 
    //The if nightmare, but reads each quadrant.

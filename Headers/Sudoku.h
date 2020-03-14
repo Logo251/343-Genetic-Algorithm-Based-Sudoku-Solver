@@ -16,5 +16,5 @@ public:
    std::istream& inputPuzzle(std::istream& input);
 
    int sudoku[9][9] = { { 0 }, { 0 }}; //This object's puzzle.
-   int fitness = 1316134911; //This object's fitness, defaults to what should be the max of int.
+   int fitness = INT_MAX; //This object's fitness, defaults to what should be the max of int.
 };

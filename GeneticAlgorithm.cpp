@@ -46,7 +46,7 @@ int main(int argc, char** argv) {
    }
 
    //Now create population.
-   SudokuPopulation sudokuPopulation(maximumPopulationSize, inputSudoku); //The 48 converts the ascii number to an integer.
+   SudokuPopulation sudokuPopulation(maximumPopulationSize, inputSudoku);
 
    for (int i = 0; i <= maximumGenerationCount; i++) {
       if (sudokuPopulation.BestFitness() == 0) {
@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
       }
       sudokuPopulation.Cull();
       sudokuPopulation.NewGeneration();
-      std::cout << '\r' << i;
+         std::cout << '\r' << i << ' ' << sudokuPopulation.BestFitness() << '\n' << dynamic_cast<const Sudoku&>(sudokuPopulation.BestIndividual());
    }
 
    std::cout << dynamic_cast<const Sudoku&>(sudokuPopulation.BestIndividual());

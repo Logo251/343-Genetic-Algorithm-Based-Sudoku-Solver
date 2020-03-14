@@ -23,8 +23,10 @@ private:
    };
 
    int maxPopulationSize;
+   int tenPercentOfPop;
    //std::vector<Sudoku> sudokuStorage;
    std::priority_queue<Sudoku, std::vector<Sudoku>, SudokuPopulation::CompareSudokus> sudokuStorage;
+   std::vector<Sudoku> topTenPercentOfSudokus; //Used to store the top 10% temporarily.
    SudokuFactory factory;
    SudokuFitness fitness;
 };

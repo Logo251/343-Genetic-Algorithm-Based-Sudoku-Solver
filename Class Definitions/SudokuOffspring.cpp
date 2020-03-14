@@ -18,7 +18,11 @@ Puzzle& SudokuOffspring::makeOffspring(Puzzle& input) const {
 
    for (int i = 0; i < 9; i++) {
       for (int j = 0; j < 9; j++) {
-         if (newSudoku.sudoku[j][i] >= 0) {
+         //If it is 0, we can just choose a random number for it, since we know that 0 is always wrong.
+         if (newSudoku.sudoku[j][i] == 0) {
+            newSudoku.sudoku[j][i] = rand() % 9 + 1;
+         }
+         else if (newSudoku.sudoku[j][i] >= 0) {
             if (rand() % 100 + 1 <= PERCENTAGE_CHANCE_OF_MUTATION) { //Rolls a number between 1 and 100.
                newSudoku.sudoku[j][i] = rand() % 9 + 1; //This generates a number between 1 and 9.
             }
