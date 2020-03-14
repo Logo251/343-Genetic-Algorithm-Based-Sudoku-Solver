@@ -11,4 +11,7 @@ public:
    Puzzle& createPuzzle(int inputArray[81]);
 
    SudokuOffspring reproductionObject;
+
+private:
+   Sudoku initialSudoku;
 };

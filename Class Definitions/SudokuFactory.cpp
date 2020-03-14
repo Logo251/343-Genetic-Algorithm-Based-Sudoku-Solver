@@ -7,7 +7,9 @@ Puzzle& SudokuFactory::createPuzzle(Puzzle& referencePuzzle) {
 
 Puzzle& SudokuFactory::createPuzzle(int inputArray[81]) {
    //Local Variables
+   //This is done because newSudoku cannot be returned.
    Sudoku newSudoku(inputArray);
+   initialSudoku = newSudoku;
 
-   return createPuzzle(newSudoku);
+   return createPuzzle(initialSudoku);
 }

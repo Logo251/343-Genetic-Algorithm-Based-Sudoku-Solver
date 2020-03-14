@@ -3,18 +3,19 @@
 
 SudokuOffspring::SudokuOffspring() {
    //Create random
-   std::srand(time(NULL));
+   std::srand(std::time(0));
+   std::cout << "I just rand.";
 }
 
 Puzzle& SudokuOffspring::makeOffspring(Puzzle& input) const {
    //Local Variables
-   int PERCENTAGE_CHANCE_OF_MUTATION = 4; //This is used to easily adjust the percentage chance of mutation.
+   int PERCENTAGE_CHANCE_OF_MUTATION = 100; //This is used to easily adjust the percentage chance of mutation.
 
    //input is a Sudoku, set it so.
    Sudoku input2 = dynamic_cast<Sudoku&>(input);
 
    //Create copy of input Sudoku
-   Sudoku newSudoku = input2;
+  static Sudoku newSudoku = input2; //This is done this way because I need to return a non-local variable and my program is not designed to use pointers, therefore leaving this option.
 
    for (int i = 0; i < 9; i++) {
       for (int j = 0; j < 9; j++) {
