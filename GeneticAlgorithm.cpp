@@ -54,7 +54,9 @@ int main(int argc, char** argv) {
       }
       sudokuPopulation.Cull();
       sudokuPopulation.NewGeneration();
+      if (i % 15 == 0) {
          std::cout << '\r' << i << ' ' << sudokuPopulation.BestFitness() << '\n' << dynamic_cast<const Sudoku&>(sudokuPopulation.BestIndividual());
+      }
    }
 
    std::cout << dynamic_cast<const Sudoku&>(sudokuPopulation.BestIndividual());

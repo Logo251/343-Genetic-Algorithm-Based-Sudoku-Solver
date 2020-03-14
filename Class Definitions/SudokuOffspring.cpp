@@ -4,12 +4,11 @@
 SudokuOffspring::SudokuOffspring() {
    //Create random
    std::srand(std::time(0));
-   std::cout << "I just rand.";
 }
 
 Puzzle& SudokuOffspring::makeOffspring(Puzzle& input) const {
    //Local Variables
-   int PERCENTAGE_CHANCE_OF_MUTATION = 100; //This is used to easily adjust the percentage chance of mutation.
+   int PERCENTAGE_CHANCE_OF_MUTATION = 5; //This is used to easily adjust the percentage chance of mutation.
 
    //input is a Sudoku, set it so.
    Sudoku input2 = dynamic_cast<Sudoku&>(input);

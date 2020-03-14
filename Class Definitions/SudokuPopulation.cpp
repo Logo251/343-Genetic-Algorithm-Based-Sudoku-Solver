@@ -28,12 +28,6 @@ void SudokuPopulation::Cull() {
       sudokuStorage.pop();
    }
 
-   for (int i = 0; i < 100; i++) {
-      std::cout << sudokuStorage.top().sudoku[0][0] << sudokuStorage.top().sudoku[1][0] << sudokuStorage.top().sudoku[2][0] << '\t'; //TODO: delete
-      sudokuStorage.pop();
-   }
-
-
    //This resets sudokuStorage more efficiently than while looping an popping each element (~17ms vs ~550ms).
    sudokuStorage = std::priority_queue<Sudoku, std::vector<Sudoku>, SudokuPopulation::CompareSudokus>();
 
@@ -52,9 +46,7 @@ void SudokuPopulation::NewGeneration() {
       Sudoku starterSudoku = sudokuStorage.top(); //This is put here to save resources, as it is only used here.
       for (int i = 0; i < maxPopulationSize - 1; i++) { //One is already in the table.
          toBeAdded = dynamic_cast<Sudoku&>(factory.createPuzzle(starterSudoku));
-         if (toBeAdded.sudoku[0][0] == 4 && toBeAdded.sudoku[1][0] == 3 && toBeAdded.sudoku[2][0] == 5) {
-            int test = 0; //TODO:delete
-         }
+
          toBeAdded.fitness = fitness.howFit(toBeAdded);
          sudokuStorage.push(toBeAdded);
       }
@@ -62,16 +54,12 @@ void SudokuPopulation::NewGeneration() {
    }
 
    if (sudokuStorage.size() == tenPercentOfPop) {
-      for (int i = tenPercentOfPop; i < maxPopulationSize; i++) { //Use 0.5 to round for specific cases.
+      for (int i = tenPercentOfPop; i < maxPopulationSize; i++) {
 
          //TODO: use while for each item repeat maxpopsize - 10%.
          //Generate fitness for this function (unsure if I can do this in the factory while following spec, so I do it here)
          toBeAdded = dynamic_cast<Sudoku&>(factory.createPuzzle(topTenPercentOfSudokus.at(progressThroughTopTenPercent)));
-         if (toBeAdded.sudoku[0][0] == 4 && toBeAdded.sudoku[1][0] == 3 && toBeAdded.sudoku[2][0] == 5) {
-            int test = 0; //TODO:delete
-         }
-         toBeAdded.fitness = fitness.howFit(sudokuStorage.top());
-
+         toBeAdded.fitness = fitness.howFit(toBeAdded);
          sudokuStorage.push(toBeAdded);
 
          if (progressThroughTopTenPercent == topTenPercentOfSudokus.size() - 1) {
